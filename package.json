@@ -11,5 +11,8 @@
   "license": "UNLICENSED",
   "devDependencies": {
     "jest": "^29.7.0"
+  },
+  "dependencies": {
+    "camelcase": "^8.0.0"
   }
 }
