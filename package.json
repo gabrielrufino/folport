@@ -7,6 +7,7 @@
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
+    "reinstall": "npx rimraf node_modules && npm ci",
     "test": "NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest"
   },
   "author": "Gabriel Rufino <contato@gabrielrufino.com>",
