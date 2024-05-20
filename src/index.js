@@ -12,6 +12,6 @@ export async function folport(folder) {
   const files = await fs.readdir(folder);
   return files.reduce(async (accumulator, current) => ({
     ...(await accumulator),
-    [camelCase(current.replace('.js', ''))]: await import(path.join(folder, current))
+    [camelCase(current.replace('.js', ''))]: await import(path.join(folder, current)),
   }), {});
 }

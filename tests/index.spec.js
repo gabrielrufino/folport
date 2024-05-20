@@ -11,16 +11,16 @@ describe('Folport', () => {
     const [
       modules,
       add,
-      subtract
+      subtract,
     ] = await Promise.all([
       folport(join(__dirname, 'folder')),
       import('./folder/add'),
-      import('./folder/subtract')
+      import('./folder/subtract'),
     ]);
 
     expect(modules).toEqual({
       add,
-      subtract
+      subtract,
     });
   });
 });
