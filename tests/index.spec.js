@@ -8,10 +8,19 @@ const __dirname = dirname(__filename);
 
 describe('Folport', () => {
   it('Should import the modules', async () => {
-    const result = await folport(join(__dirname, 'folder'));
+    const [
+      modules,
+      add,
+      subtract
+    ] = await Promise.all([
+      folport(join(__dirname, 'folder')),
+      import('./folder/add'),
+      import('./folder/subtract')
+    ]);
 
-    expect(result).toEqual({
-      add: expect.any(Object),
+    expect(modules).toEqual({
+      add,
+      subtract
     });
   });
 });
