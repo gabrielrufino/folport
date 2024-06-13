@@ -10,10 +10,8 @@ import camelCase from 'camelcase';
  */
 export async function folport(folder) {
   const files = await fs.readdir(folder);
-  const modules = {};
-  for (const file of files) {
-    const moduleName = camelCase(file.replace('.js', ''));
-    modules[moduleName] = await import(path.join(folder, file));
-  }
-  return modules;
+  return files.reduce(async (accumulator, current) => ({
+    ...(await accumulator),
+    [camelCase(current.replace('.js', ''))]: await import(path.join(folder, current)),
+  }), {});
 }
