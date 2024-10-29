@@ -43,10 +43,13 @@ Suppose we have the following folder structure:
 #### index.js
 
 ```js
-'use strict'
+import { dirname, join } from 'path';
+import { fileURLToPath } from 'url';
 
-import { join } from 'path'
-import folport from 'folport'
+import folport from 'folport';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 async function main() {
   const math = await folport(join(__dirname, 'math'))
