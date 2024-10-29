@@ -6,12 +6,17 @@ import camelCase from 'camelcase';
 /**
  * Imports all modules from a folder
  * @param {String} folder
- * @returns {Promise}
+ * @returns {Promise<Object>}
  */
 export async function folport(folder) {
   const files = await fs.readdir(folder);
-  return files.reduce(async (accumulator, current) => ({
-    ...(await accumulator),
-    [camelCase(current.replace('.js', ''))]: await import(path.join(folder, current)),
-  }), {});
+
+  const imports = files.map(async (file) => {
+    const module = await import(path.join(folder, file));
+    const moduleName = camelCase(file.replace('.js', ''));
+    return { [moduleName]: module };
+  });
+
+  const results = await Promise.all(imports);
+  return Object.assign({}, ...results);
 }
