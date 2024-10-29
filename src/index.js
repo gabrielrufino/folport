@@ -8,7 +8,7 @@ import camelCase from 'camelcase';
  * @param {String} folder
  * @returns {Promise<Object>}
  */
-export async function folport(folder) {
+export default async function folport(folder) {
   const files = await fs.readdir(folder);
 
   const imports = files.map(async (file) => {

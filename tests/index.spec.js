@@ -1,7 +1,7 @@
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 
-import { folport } from '../src';
+import folport from '../src';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
