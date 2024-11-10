@@ -1,7 +1,7 @@
 {
   "name": "folport",
   "version": "1.0.2",
-  "description": "",
+  "description": "Imports modules from a folder",
   "main": "src/index.js",
   "type": "module",
   "scripts": {
