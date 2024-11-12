@@ -3,17 +3,18 @@ import path from 'node:path';
 
 import camelCase from 'camelcase';
 
-/**
- * Imports all modules from a folder
- * @param {String} folder
- * @returns {Promise<Object>}
- */
-export default async function folport(folder) {
+function defaultLabeler(filename) {
+  return camelCase(filename.replace('.js', ''));
+}
+
+export default async function folport(folder, {
+  labeler = defaultLabeler,
+} = { labeler: defaultLabeler }) {
   const files = await fs.readdir(folder);
 
   const imports = files.map(async (file) => {
     const module = await import(path.join(folder, file));
-    const moduleName = camelCase(file.replace('.js', ''));
+    const moduleName = labeler(file);
     return { [moduleName]: module };
   });
 
