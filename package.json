@@ -3,6 +3,7 @@
   "version": "1.0.2",
   "description": "Imports modules from a folder",
   "main": "src/index.js",
+  "types": "src/index.d.ts",
   "type": "module",
   "scripts": {
     "lint": "eslint .",
