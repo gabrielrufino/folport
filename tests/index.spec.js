@@ -1,6 +1,8 @@
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 
+import { describe, expect, it } from 'vitest';
+
 import folport from '../src';
 
 const __filename = fileURLToPath(import.meta.url);

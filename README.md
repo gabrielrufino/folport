@@ -2,6 +2,10 @@
 
 # Folport
 
+[![CI](https://github.com/gabrielrufino/folport/actions/workflows/ci.yml/badge.svg)](https://github.com/gabrielrufino/folport/actions/workflows/ci.yml)
+[![CD](https://github.com/gabrielrufino/folport/actions/workflows/cd.yml/badge.svg)](https://github.com/gabrielrufino/folport/actions/workflows/cd.yml)
+
+
 Folport allows you to import all modules from a folder in a single step, organizing them in a clean and accessible way.
 
 ### Getting Started
